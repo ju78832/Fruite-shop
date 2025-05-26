@@ -2,10 +2,9 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Search, Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Menu, X } from "lucide-react";
 import { NAV_LINKS } from "@/lib/constants";
+import { SOCIAL_LINKS } from "@/lib/constants";
 import Image from "next/image";
 
 export default function Header() {
@@ -14,45 +13,97 @@ export default function Header() {
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 mx-auto w-full max-w-screen ">
-      <div className="container flex h-16 items-center justify-between ">
-        <div className="flex items-center ml-8 gap-10">
+    <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+        {/* Logo */}
+        <div className="flex items-center">
           <Link href="/" className="text-xl font-bold text-primary">
             <Image
-              src={"/images/Asset 26BW.png"}
+              src="/images/Asset 26BW.png"
               width={100}
               height={100}
               alt="logo"
+              className="h-auto w-auto"
             />
           </Link>
         </div>
 
-        <div className="flex items-end gap-4">
-          <Button variant="ghost" onClick={toggleMenu} aria-label="Toggle menu">
-            {menuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </Button>
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center">
+          <ul className="flex flex-row gap-2">
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded transition-colors"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Social Links */}
+        <div className="hidden md:flex gap-4">
+          {SOCIAL_LINKS.map((link) => (
+            <Link
+              key={link.name}
+              href={link.url}
+              className="text-muted-foreground hover:text-primary transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <link.icon className="h-5 w-5" />
+            </Link>
+          ))}
         </div>
 
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden p-2"
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+
+        {/* Mobile Menu */}
         {menuOpen && (
-          <nav className="absolute top-16 right-0 w-48 bg-background border border-gray-200 rounded-md shadow-md">
-            <ul className="flex flex-col p-2">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href} className="mb-2 last:mb-0">
+          <div className="absolute top-16 left-0 right-0 bg-background border-b md:hidden">
+            <div className="container mx-auto px-4 py-4">
+              <nav className="mb-4">
+                <ul className="space-y-2">
+                  {NAV_LINKS.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded transition-colors"
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+              
+              <div className="flex gap-4 px-4">
+                {SOCIAL_LINKS.map((link) => (
                   <Link
-                    href={link.href}
-                    className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-100 rounded"
+                    key={link.name}
+                    href={link.url}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={() => setMenuOpen(false)}
                   >
-                    {link.label}
+                    <link.icon className="h-5 w-5" />
                   </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+                ))}
+              </div>
+            </div>
+          </div>
         )}
       </div>
     </header>

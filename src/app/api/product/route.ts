@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "../../../../generated/prisma";
+import { PrismaClient } from "@prisma/client";
 import { v2 as cloudinary } from "cloudinary";
 
 const prisma = new PrismaClient();

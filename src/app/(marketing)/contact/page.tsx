@@ -11,12 +11,52 @@ export default function ContactPage() {
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold tracking-tight">Get in Touch</h1>
         <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-          We'd love to hear from you! Reach out with questions, feedback, or
-          just to say hello.
+          Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-12">
+      <div className="grid gap-8 md:grid-cols-2">
+        <Card>
+          <CardHeader>
+            <CardTitle>Contact Information</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            <div className="space-y-2">
+              <h3 className="font-semibold">Office Address</h3>
+              <p className="text-muted-foreground">
+                HIG-461, K-5 Subudhipur, Kalinga Nagar<br />
+                Bhubaneswar, Khorda Nagar<br />
+                Orissa-751019
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="font-semibold">Manufacturing Unit Address</h3>
+              <p className="text-muted-foreground">
+                HIG-461, K-5 Subudhipur, Kalinga Nagar<br />
+                Bhubaneswar, Khorda Nagar<br />
+                Orissa-751019
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="font-semibold">Phone</h3>
+              <p className="text-muted-foreground">
+                1800 890 8177<br />
+                <span className="text-sm">24/7 support services</span>
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="font-semibold">Email</h3>
+              <p className="text-muted-foreground">
+                care@farmlyf.in<br />
+                sales@farmlyf.in
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Contact Form */}
         <Card>
           <CardHeader>
@@ -52,74 +92,6 @@ export default function ContactPage() {
             </form>
           </CardContent>
         </Card>
-
-        {/* Contact Info */}
-        <div className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Contact Information</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex items-start gap-4">
-                <MapPin className="h-5 w-5 mt-1 text-primary" />
-                <div>
-                  <h3 className="font-medium">Address</h3>
-                  <p className="text-muted-foreground">
-                    HIG-461,K-5 Subudhipur, Kalinga Nagar
-                    <br />
-                    Bhubaneswar, Khorda Nagar, orissa-751019
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <Phone className="h-5 w-5 mt-1 text-primary" />
-                <div>
-                  <h3 className="font-medium">Phone</h3>
-                  <p className="text-muted-foreground">
-                    <Link href="tel:+911234567890" className="hover:underline">
-                      1800 890 8177
-                    </Link>
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    Monday to Saturday, 9 AM to 6 PM
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <Mail className="h-5 w-5 mt-1 text-primary" />
-                <div>
-                  <h3 className="font-medium">Email</h3>
-                  <p className="text-muted-foreground">
-                    <Link
-                      href="mailto:support@farmley.com"
-                      className="hover:underline"
-                    >
-                      care@farmlyf.in
-                    </Link>
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Social Media */}
-          <div className="flex gap-4 justify-center">
-            {[
-              { name: "Facebook", icon: "facebook", url: "#" },
-              { name: "Instagram", icon: "instagram", url: "#" },
-              { name: "Twitter", icon: "twitter", url: "#" },
-              { name: "LinkedIn", icon: "linkedin", url: "#" },
-            ].map((social) => (
-              <Button key={social.name} variant="outline" size="icon" asChild>
-                <Link href={social.url} aria-label={social.name}>
-                  <span className="sr-only">{social.name}</span>
-                  {/* Replace with actual icons */}
-                  <div className="h-5 w-5" />
-                </Link>
-              </Button>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );
