@@ -88,8 +88,16 @@ export const FOOTER_LINKS: FooterSection[] = [
 ];
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { name: "Facebook", url: "#", icon: Facebook },
-  { name: "Instagram", url: "#", icon: Instagram },
+  {
+    name: "Facebook",
+    url: "https://www.facebook.com/people/Farmlyf-India/pfbid03561i3gVp8WKWtsLSVfDwZXy3Fsp63yemAzvZ9f8ZnEhpTZgFkYACTSMsL1wnU1B2l/",
+    icon: Facebook,
+  },
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/farmlyfindia/",
+    icon: Instagram,
+  },
   { name: "Twitter", url: "#", icon: Twitter },
   { name: "LinkedIn", url: "#", icon: Linkedin },
 ];
