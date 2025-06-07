@@ -274,7 +274,7 @@ export default function AboutPage() {
         {/* Why Choose Us */}
         <section>
           <h2 className="text-3xl font-bold tracking-tight mb-8 text-center">
-            Why Choose Farmley
+            Why Choose Farmlyf
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
