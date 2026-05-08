@@ -36,7 +36,15 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t pt-8 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Farmlyf. All rights reserved.
+          © {new Date().getFullYear()} Farmlyf. All rights reserved.{" "}
+          <a
+            href="https://juneddev.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className=" hover:underline"
+          >
+            Mohd Juned
+          </a>
         </div>
       </div>
     </footer>

@@ -140,7 +140,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "E:\\Fruite-shop\\generated\\prisma",
+      "value": "D:\\fruite_shop\\Fruite-shop\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -154,7 +154,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "E:\\Fruite-shop\\prisma\\schema.prisma",
+    "sourceFilePath": "D:\\fruite_shop\\Fruite-shop\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
